@@ -2,7 +2,7 @@ name: Deploy to Heroku
 
 on:
   push:
-    branches: [ "master" ]  # Sesuaikan nama branch
+    branches: [ "main" ]  # Sesuaikan nama branch
 
 jobs:
   build-and-deploy:
@@ -13,10 +13,10 @@ jobs:
       - name: Install Python
         uses: actions/setup-python@v4
         with:
-          python-version: "3.11.9"
+          python-version: "3.11"
 
       - name: Install Dependencies
-        run: | 
+        run: |
           pip install -r requirements.txt
 
       - name: Deploy to Heroku
@@ -24,4 +24,4 @@ jobs:
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-          heroku_email: "andreassinarmata@outlook.com"  # Ganti dengan email Heroku Anda
+          heroku_email: "andreassinarmata@outlook.com"
