@@ -2,7 +2,7 @@ name: Deploy to Heroku
 
 on:
   push:
-    branches: [ "main" ]  # Sesuaikan nama branch
+    branches: [ "master" ]  # Sesuaikan nama branch
 
 jobs:
   build-and-deploy:
