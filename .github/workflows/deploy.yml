@@ -1,0 +1,27 @@
+name: Deploy to Heroku
+
+on:
+  push:
+    branches: [ "master" ]  # Sesuaikan nama branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.13.2"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Updates
+        uses: akhileshns/heroku-deploy@v3.0.5
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+          heroku_email: "alfharyandarmansyah@gmail.com"  # Ganti dengan email Heroku Anda
